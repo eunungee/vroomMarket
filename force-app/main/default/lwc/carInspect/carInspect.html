@@ -1,0 +1,258 @@
+<template>
+    <!-- 반복되는 체크박스 처리 -->
+    <template for:each={fieldList} for:item="field">
+        <!-- key 속성 추가 -->
+        <input key={field.id} type="checkbox" class="circle-checkbox" id={field.id} style={field.style} data-field={field.dataField} onchange={handleCheckChange}/>
+    </template>
+    <template if:true={isModalOpen}>
+            <section role="dialog" tabindex="-1" class="slds-modal slds-fade-in-open">
+                <div class="slds-modal__container">
+
+                    <!-- 모달 헤더 -->
+                    <header class="slds-modal__header">
+                        <button class="slds-button slds-button_icon slds-modal__close slds-button_icon-inverse" title="Close" onclick={closeModal}>
+                            <lightning-icon icon-name="utility:close" alternative-text="close" size="small"></lightning-icon>
+                            <span class="slds-assistive-text">Close</span>
+                        </button>
+                        <h2 class="slds-text-heading_medium">이전 평가 내역</h2>
+                    </header>
+
+                    <!-- 모달 본문 (레코드 세부 정보) -->
+                    <div class="slds-modal__content slds-p-around_medium">
+                        <lightning-record-view-form record-id={recordId} object-api-name="Product_Record__c">
+                            <div class="slds-grid slds-wrap">
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Repair_Door_Ding__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Repair_Door_Ding__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Metal_Painting__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Metal_Painting__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Metal_Change__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Metal_Change__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Weld_Metal_Change__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Weld_Metal_Change__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Bumper_Change__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Bumper_Change__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Tire_Tread__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Tire_Tread__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Wheel_Repair__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Wheel_Repair__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="NonPayment_Penalty__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_NonPayment_Penalty__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Broken_Electronics__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Broken_Electronics__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Oil_Leakage__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Oil_Leakage__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Missing_Key__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Missing_Key__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Glass_TintingFilm_Damage__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Glass_TintingFilm_Damage__c"></lightning-output-field>
+                                </div>
+
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="Additional_Depreciation_Factors__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="cur_Additional_Depreciation_Factors__c"></lightning-output-field>
+                                </div>
+                                <div class="slds-col slds-size_1-of-2">
+                                    <lightning-output-field field-name="total_amount_of_depreciation__c"></lightning-output-field>
+                                </div>
+                            </div>
+                        </lightning-record-view-form>
+                    </div>
+                </div>
+            </section>
+            <div class="slds-backdrop slds-backdrop_open"></div>
+        </template>
+
+    <div class="container">
+        <div class="left-section">
+            <!-- 사고 수리 이력 -->
+            <div class="accident-section">
+                <h1>사고·수리 이력</h1>
+                <img src={CarOutside} alt="Image 1">
+                <img src={CarInside} alt="Image 2">
+            </div>
+        </div>
+        <div class="right-section">
+            <!-- 내외관 상태 -->
+            <div class="status-section">
+                <h2>내·외관 상태</h2>
+
+                <!-- 차키 수 -->
+                <div class="input-with-buttons">
+                    <lightning-button label="-" onclick={decrementCarKeyCount}></lightning-button>
+                    <lightning-input label="차키 수" type="number" value={carKeyCount} readonly></lightning-input>
+                    <lightning-button label="+" onclick={incrementCarKeyCount}></lightning-button>
+                </div>
+
+                <!-- 외판 도색필요 -->
+                <div class="input-with-buttons">
+                    <lightning-button label="-" onclick={decrementPaintingCount}></lightning-button>
+                    <lightning-input label="외판 도색필요" type="number" value={paintingCount} readonly></lightning-input>
+                    <lightning-button label="+" onclick={incrementPaintingCount}></lightning-button>
+                </div>
+
+                <!-- 휠기스 -->
+                <div class="input-with-buttons">
+                    <lightning-button label="-" onclick={decrementWheelScratchCount}></lightning-button>
+                    <lightning-input label="휠기스" type="number" value={wheelScratchCount} readonly></lightning-input>
+                    <lightning-button label="+" onclick={incrementWheelScratchCount}></lightning-button>
+                </div>
+
+                <!-- 타이어 마모 (앞) -->
+                <div class="input-with-buttons">
+                    <lightning-button label="-" onclick={decrementFrontTireWear}></lightning-button>
+                    <lightning-input label="타이어 마모 (앞)" type="number" value={frontTireWear} readonly></lightning-input>
+                    <lightning-button label="+" onclick={incrementFrontTireWear}></lightning-button>
+                </div>
+
+                <!-- 타이어 마모 (뒤) -->
+                <div class="input-with-buttons">
+                    <lightning-button label="-" onclick={decrementRearTireWear}></lightning-button>
+                    <lightning-input label="타이어 마모 (뒤)" type="number" value={rearTireWear} readonly></lightning-input>
+                    <lightning-button label="+" onclick={incrementRearTireWear}></lightning-button>
+                </div>
+                
+                <!-- 특수키 -->
+                <label class="slds-checkbox_toggle slds-grid">
+                    <br>
+                    <span class="slds-form-element__label slds-m-bottom_none">특수키</span>
+                    <input type="checkbox" name="checkbox-toggle-3" value="checkbox-toggle-3" aria-describedby="checkbox-toggle-3" onchange={handleCheckChangeSpecialKey}/>
+                    <span id="checkbox-toggle-3" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+            </div>
+
+            <!-- 부품·작동 이상 -->
+            <div class="parts-section">
+                <h2>부품·작동 이상</h2>
+                <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none">계기판 경고등</span>
+                    <input type="checkbox" name="checkbox-toggle-4" value="checkbox-toggle-4" aria-describedby="checkbox-toggle-4" onchange={handleCheckChangeDlight}/>
+                    <span id="checkbox-toggle-4" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+                <br>
+                <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none">옵션기능 작동</span>
+                    <input type="checkbox" name="checkbox-toggle-5" value="checkbox-toggle-5" aria-describedby="checkbox-toggle-5" onchange={handleCheckChangeOpError}/>
+                    <span id="checkbox-toggle-5" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+                <br>
+                <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none">차량누유 있음</span>
+                    <input type="checkbox" name="checkbox-toggle-6" value="checkbox-toggle-6" aria-describedby="checkbox-toggle-6" onchange={handleCheckChangeOLeak}/>
+                    <span id="checkbox-toggle-6" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+                <br>
+                <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none">차량 운행불가</span>
+                    <input type="checkbox" name="checkbox-toggle-7" value="checkbox-toggle-7" aria-describedby="checkbox-toggle-7" onchange={handleCheckChangeDD}/>
+                    <span id="checkbox-toggle-7" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+            </div>
+
+            <div class="info">
+                <h2>이미지 업로드 및 부당감가 확정</h2>
+                <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none">이미지 업로드</span>
+                    <input type="checkbox" name="checkbox-toggle-1" value="checkbox-toggle-1" aria-describedby="checkbox-toggle-1" onchange={handleCheckChangeImg}/>
+                    <span id="checkbox-toggle-1" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+                <br>
+                <label class="slds-checkbox_toggle slds-grid">
+                    <span class="slds-form-element__label slds-m-bottom_none">부당감가 확정</span>
+                    <input type="checkbox" name="checkbox-toggle-2" value="checkbox-toggle-2" aria-describedby="checkbox-toggle-2" onchange={handleCheckChangeSubmit}/>
+                    <span id="checkbox-toggle-2" class="slds-checkbox_faux_container">
+                        <span class="slds-checkbox_faux"></span>
+                    </span>
+                </label>
+            </div>
+        </div>
+    </div>
+
+    <div if:true={showInputField} class="hf">
+        <lightning-card title= "이미지 업로드" icon-name="custom:custom18">
+            <lightning-file-upload
+                name="fileUploader"
+                accept={acceptedFormats}
+                record-id={recordId}
+                onuploadfinished={handleUploadFinished}
+                multiple>
+            </lightning-file-upload>
+        </lightning-card>
+    </div>
+
+    <!-- 필드 상태에 따라 반복적으로 렌더링 -->
+    <template for:each={fieldList} for:item="field">
+        <div key={field.id} if:true={field.showField} class="hf" id={field.divId}>
+            <lightning-card title={field.title} icon-name="custom:custom31">
+                <div class="input-with-buttons">
+                    <lightning-button label="-" onclick={decrementField} data-field={field.dataField}></lightning-button>
+                    <lightning-input label="이상 개수" type="number" value={field.value} readonly></lightning-input>
+                    <lightning-button label="+" onclick={incrementField} data-field={field.dataField}></lightning-button>
+                </div>
+            </lightning-card>
+        </div>
+    </template>
+    <br>
+    <lightning-button class="infoBtn" label="이전 평가 내역" onclick={handleGetRecordDetails}></lightning-button>
+    <lightning-button class="submitBtn" label="평가 제출" onclick={submitInspection}></lightning-button>
+</template>

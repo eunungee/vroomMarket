@@ -1,0 +1,18 @@
+/* 버튼 스타일
+.slds-button-custom {
+    border-radius: 20px;
+    border: 2px solid #396EFF;
+    background-color: white;
+    color: #396EFF;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+완료된 일정 스타일
+.slds-button-completed {
+    background-color: rgba(65, 77, 107, 0.16);
+    color: rgba(65, 77, 107, 0.5);
+    text-decoration-line: line-through;
+    
+    border: none;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+} */

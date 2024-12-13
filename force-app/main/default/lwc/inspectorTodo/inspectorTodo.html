@@ -1,0 +1,20 @@
+<template>
+    <div class="slds-box slds-theme_default">
+        <h1>오늘 재평가 일정</h1>
+        <template if:true={reinspectionRecords.length}>
+            <template for:each={reinspectionRecords} for:item="record">
+                <lightning-button 
+                    key={record.Id} 
+                    label={record.buttonLabel}
+                    class={record.buttonClass}
+                    disabled={record.isCompleted} 
+                    onclick={handleReinspectionClick}
+                    data-id={record.Id}>
+                </lightning-button>
+            </template>
+        </template>
+        <template if:false={reinspectionRecords.length}>
+            <p>오늘 재평가 일정이 없습니다.</p>
+        </template>
+    </div>
+</template>

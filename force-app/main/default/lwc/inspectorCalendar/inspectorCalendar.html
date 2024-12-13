@@ -1,0 +1,36 @@
+<template>
+    <div class="calendar">
+        <div class="left-column">
+            <template for:each={leftColumnDates} for:item="date">
+                <div key={date.id} class="calendar-row">
+                    <div class="date-cell">{date.formattedDate}</div>
+                    <div class="circle-container">
+                        <template for:each={date.reinspections} for:item="inspection">
+                            <div key={inspection.id} class="circle" onclick={handleCircleClick} data-id={inspection.id}>
+                                <div if:true={inspection.showTooltip} class="tooltip">
+                                    {inspection.time} {inspection.address}
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+        <div class="right-column">
+            <template for:each={rightColumnDates} for:item="date">
+                <div key={date.id} class="calendar-row">
+                    <div class="date-cell">{date.formattedDate}</div>
+                    <div class="circle-container">
+                        <template for:each={date.reinspections} for:item="inspection">
+                            <div key={inspection.id} class="circle" onclick={handleCircleClick} data-id={inspection.id}>
+                                <div if:true={inspection.showTooltip} class="tooltip">
+                                    {inspection.time} {inspection.address}
+                                </div>
+                            </div>
+                        </template>
+                    </div>
+                </div>
+            </template>
+        </div>
+    </div>
+</template>

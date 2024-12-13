@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="거래 금액 정보">
+        <!-- 거래 금액을 표시 -->
+        <div>
+            <p>거래 금액: {opportunityAmount}</p>
+        </div>
+
+        <!-- 체크박스와 텍스트 -->
+        <lightning-input type="checkbox" label="실제 거래 금액과 상이" checked={isChecked} onchange={handleCheckboxChange}>
+        </lightning-input>
+
+        <!-- 체크박스가 체크된 경우에만 input 필드 표시 -->
+        <template if:true={isChecked}>
+            <lightning-input type="number" label="실제 거래 금액 입력" value={realAmount} onchange={handleRealAmountChange}>
+            </lightning-input>
+        </template>
+    </lightning-card>
+</template>

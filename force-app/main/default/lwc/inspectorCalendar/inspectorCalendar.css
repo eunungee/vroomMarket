@@ -1,0 +1,63 @@
+.calendar {
+    display: flex;
+    justify-content: space-between; /* 좌우로 열을 나눔 */
+    width: 100%;
+}
+
+.left-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 각 날짜와의 간격 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+}
+
+.right-column {
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* 각 날짜와의 간격 */
+    align-items: flex-start; /* 왼쪽 정렬 */
+    margin-left: auto; /* 오른쪽 열을 중앙으로 이동 */
+    margin-right: auto; /* 오른쪽 열을 중앙으로 이동 */
+}
+
+.calendar-row {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 10px 0;
+}
+
+.date-cell {
+    width: 70px;
+    text-align: left; /* 날짜는 왼쪽 정렬 */
+    padding-right: 20px; /* 날짜와 동그라미 사이 간격 */
+}
+
+.circle-container {
+    display: flex;
+    gap: 10px; /* 동그라미 간격 (동그라미 크기의 절반) */
+}
+
+.circle {
+    width: 20px;
+    height: 20px;
+    border: 2px solid #396EFF; /* 테두리 색상 */
+    background-color: rgba(57, 110, 255, 0.16); /* 동그라미 내부 색상 */
+    border-radius: 50%;
+    position: relative;
+    cursor: pointer;
+}
+
+.tooltip {
+    position: absolute;
+    bottom: 30px; /* 동그라미 위에 나타나도록 */
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    white-space: nowrap;
+    z-index: 10;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}

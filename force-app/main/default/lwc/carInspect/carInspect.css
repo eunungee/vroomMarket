@@ -1,0 +1,88 @@
+.container {
+    display: flex;
+    justify-content: space-between; 
+    flex-direction: row;
+    gap: 20px; /* 섹션 간의 간격 */
+    width: 820px;
+    flex-wrap: nowrap;
+    margin-left: 45px;
+}
+
+.right-section, .left-section {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 13px; /* 각 섹션 간의 간격 */
+}
+
+.status-section,
+.parts-section,
+.accident-section,
+.info {
+    padding: 25px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background-color: #f9f9f9;
+}
+
+.status-section,
+.parts-section,
+.info {
+    width: 250px;
+}
+
+.input-with-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px; /* 버튼과 입력 필드 간의 간격 */
+}
+
+.diagram {
+    width: 500px;
+    height: 300px;
+    background-color: #e0e0e0;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    max-width: 500px;
+}
+
+.circle-checkbox {
+    position: absolute;
+    width: 15px;
+    height: 15px;
+    border: 1px solid #396EFF;
+    border-radius: 50%;
+    appearance: none;
+    background-color: rgba(57, 110, 255, 0.16); /* 반투명한 배경 */
+    cursor: pointer;
+}
+
+
+.circle-checkbox:checked {
+    background-color: rgba(57, 110, 255, 0.64); /* 선택 시 더 진한 색상 */
+}
+
+.circle-checkbox:hover {
+    background-color: rgba(57, 110, 255, 0.32);
+}
+
+.hf {
+    width: 670px;
+    margin-left: 45px;
+}
+
+.infoBtn {
+    margin-top: 30px;
+    width: 150px;
+    height: 70px;
+    margin-left: 290px;
+}
+
+.submitBtn {
+    margin-top: 30px;
+    width: 150px;
+    height: 70px;
+    margin-left: 50px;
+}
